@@ -42,4 +42,4 @@ class GameController < ApplicationController
   end
 end
 
-'rails generate simple_form:install'
+rails generate simple_form:install
