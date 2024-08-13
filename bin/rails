@@ -31,4 +31,3 @@ require "rails/commands"
       (player == "paper" && computer == "rock") ||
       (player == "scissors" && computer == "paper")
   end
-end
