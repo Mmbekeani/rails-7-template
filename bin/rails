@@ -56,3 +56,4 @@ end
 
   <%= submit_tag 'Play!' %>
 <% end %>
+rails generate simple_form
