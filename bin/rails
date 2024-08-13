@@ -31,3 +31,6 @@ require "rails/commands"
       (player == "paper" && computer == "rock") ||
       (player == "scissors" && computer == "paper")
   end
+
+  rails generate simple_form:install
+end 
