@@ -32,5 +32,4 @@ require "rails/commands"
       (player == "scissors" && computer == "paper")
   end
 
-  rails generate simple_form:install
-
+  'rails generate simple_form:install'
