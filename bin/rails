@@ -33,4 +33,4 @@ require "rails/commands"
   end
 
   rails generate simple_form:install
-end 
+
