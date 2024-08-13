@@ -42,16 +42,4 @@ class GameController < ApplicationController
   end
 end
 
-<%= form_with url: play_path, method: :post do %>
-  <%= radio_button_tag :move, 'rock' %>
-  <%= label_tag :move_rock, 'Rock' %><br>
-
-  <%= radio_button_tag :move, 'paper' %>
-  <%= label_tag :move_paper, 'Paper' %><br>
-
-  <%= radio_button_tag :move, 'scissors' %>
-  <%= label_tag :move_scissors, 'Scissors' %><br>
-
-  <%= submit_tag 'Play!' %>
-<% end %>
 rails generate simple_form
