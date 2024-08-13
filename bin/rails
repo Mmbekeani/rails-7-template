@@ -42,8 +42,6 @@ class GameController < ApplicationController
   end
 end
 
-<p>Choose your move:</p>
-
 <%= form_with url: play_path, method: :post do %>
   <%= radio_button_tag :move, 'rock' %>
   <%= label_tag :move_rock, 'Rock' %><br>
