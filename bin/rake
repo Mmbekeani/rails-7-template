@@ -1,4 +1,57 @@
-#!/usr/bin/env ruby
-require_relative "../config/boot"
-require "rake"
-Rake.application.run
+rails new rps_game
+cd rps_game
+rails generate controller Game index play result
+Rails.application.routes.draw do
+  root game index
+  post play, to: game play
+  get result, to: game#result
+end
+class GameController < ApplicationController
+  def index
+  end
+
+  def play
+    @player_move = params[:move]
+    @computer_move = [rock, paper, scissors].sample
+
+    @result = if @player_move == @computer_move
+                It is a tie!
+              elsif win?(@player_move, @computer_move)
+                You win!
+              else
+                You lose!
+              end
+
+    redirect_to result_path(player_move: @player_move, computer_move: @computer_move, result: @result)
+  end
+
+  def result
+    @player_move = params[:player_move]
+    @computer_move = params[:computer_move]
+    @result = params[:result]
+  end
+
+  private
+
+  def win?(player, computer)
+    (player == rock && computer == scissors) ||
+      (player == paper && computer == rock) ||
+      (player == scissors && computer == paper)
+  end
+end
+<h1>Rock-Paper-Scissors Game</h1>
+<p>Choose your move:</p>
+
+<= form_with url: play_path, method: :post do>
+  <= radio_button_tag :move, rock>
+  <= label_tag :move_rock, Rock<br>
+
+  <=radio_button_tag :move, paper/>
+  <= label_tag :move_paper, Paper/<br>
+
+  <= radio_button_tag :move, scissors/><br>
+  <= label_tag :move_scissors, Scissors/><br>
+
+  < = submit_tag Play!>
+< end >
+
